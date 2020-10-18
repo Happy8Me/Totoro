@@ -1,7 +1,7 @@
 
 window.onload = function () {
 
-var	 character = document.querySelector( '.character' ),
+let	 character = document.querySelector( '.character' ),
 	 img = document.querySelector( '.character img' ),
 	 step = 20,
 	 h = character.offsetHeight,
@@ -15,7 +15,7 @@ var	 character = document.querySelector( '.character' ),
 
 
 	allowedField = function () {
-		var startPointX = 0,
+		let startPointX = 0,
 			startPointY = 0,
 			endtPointX = window.innerWidth,
 			endPointY = window.innerHeight,
@@ -24,7 +24,7 @@ var	 character = document.querySelector( '.character' ),
 			w = character.offsetWidth,
 			buffer = 35;
 
-		var startEdgeX = x >= startPointX + buffer,  
+		let startEdgeX = x >= startPointX + buffer,  
 			startEdgeY = y >= startPointY + buffer,  
 			endEdgeX = x <= endtPointX - w - buffer,  
 			endEdgeY = y <= endPointY - h - buffer; 
@@ -53,7 +53,7 @@ var	 character = document.querySelector( '.character' ),
 		return true;
 	}
 
-	var Foo = {
+	let Foo = {
 		down: function (){
 			if ( !event.ctrlKey ) {
 				character.style.top = character.offsetTop + step + 'px';
@@ -185,12 +185,12 @@ var	 character = document.querySelector( '.character' ),
 		show() {
 			event.preventDefault();
 			this.target.classList.remove('hidden');
-			var self = this;
+			let self = this;
 			document.addEventListener('click' , function(){
 				self.hide();
 			}, { once: true })
-			var x = event.clientX;
-			var y = event.clientY;
+			let x = event.clientX;
+			let y = event.clientY;
 			this.target.style.cssText = 'left:' + x + 'px;' + 'top:' + y + 'px;';
 		}
 
@@ -200,7 +200,7 @@ var	 character = document.querySelector( '.character' ),
 
 	};
 
-	var contextMenu = new ContextMenu([
+	let contextMenu = new ContextMenu([
 		{
 			title: 'Jump',
 			action: 'jump'		
@@ -236,9 +236,9 @@ var	 character = document.querySelector( '.character' ),
 
 	function init() {
 		contextMenu.setTarget(document.querySelector('.context-menu'));
-		var contextMenuActions = contextMenu.getActions();
+		let contextMenuActions = contextMenu.getActions();
 
-		for(var i = 0, item; i < contextMenu.list.length; i++) {
+		for(let i = 0, item; i < contextMenu.list.length; i++) {
 			item = document.createElement('div');
 			item.classList.add('item');
 			item.innerHTML = contextMenu.list[i].title;
